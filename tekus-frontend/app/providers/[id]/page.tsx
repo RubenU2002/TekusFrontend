@@ -343,7 +343,7 @@ export default function EditProviderPage() {
 
                             {field.value.map((code) => {
                               const country = countries.find(
-                                (c) => c.code === code
+                                (c) => c.code.trim() === code.trim()
                               );
                               return (
                                 <span

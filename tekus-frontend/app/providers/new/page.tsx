@@ -91,7 +91,11 @@ export default function NewProviderPage() {
       router.push("/providers");
     } catch (error: any) {
       console.error("Failed to create provider:", error);
-      setError(error.response?.data?.message || "Failed to create provider");
+    setError(
+        typeof error.response?.data === 'string' 
+            ? error.response.data 
+            : error.response?.data?.message || "Failed to create provider"
+    );
     } finally {
       setIsLoading(false);
     }
